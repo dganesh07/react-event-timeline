@@ -2,6 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import moment from "moment";
+import Timeline from "./Timeline";
 
 function App() {
   function getMonths(month, year) {
@@ -41,6 +42,12 @@ function App() {
         <div class="head">4</div>
         <div class="head">5</div>
         <div class="head">6</div>
+        <div class="head">1</div>
+        <div class="head">2</div>
+        <div class="head">3</div>
+        <div class="head">4</div>
+        <div class="head">5</div>
+        <div class="head">6</div>
         <div class="elem start1 end2">A</div>
         <div class="elem start2 end5">B</div>
         <div class="elem start2 end3">C</div>
@@ -50,6 +57,7 @@ function App() {
         <div class="elem start5 end7">G</div>
         <div class="elem start6 end8">H</div>
       </div>
+      <Timeline />
     </div>
   );
 }

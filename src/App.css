@@ -3,7 +3,7 @@
   width: 525px;
   border: solid 1px black;
   display: grid;
-  grid-template-columns: repeat(24, 20px);
+  grid-template-columns: repeat(25, 20px);
   grid-auto-flow: dense;
   grid-gap: 2px;
 }
