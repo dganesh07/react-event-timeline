@@ -1,4 +1,23 @@
-.grid {
+.container {
+  display: flex;
+  background-color: lightseagreen;
+  overflow: scroll;
+  height: 1000px;
+}
+
+.header-dates {
+  font-size: 15px;
+  margin: 3px;
+  padding-right: 1px;
+  border-right: 0.5px solid gray;
+}
+
+.timeline-section {
+  width: 1000px;
+  height: 1000px;
+}
+
+/* .grid {
   margin: 10px;
   width: 525px;
   border: solid 1px black;
@@ -52,4 +71,4 @@
 }
 .end6 {
   grid-column-end: 7;
-}
+} */

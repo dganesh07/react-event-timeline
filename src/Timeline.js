@@ -36,7 +36,7 @@ function Timeline() {
 
     dates.push(endDate.toDate());
     dates.push(endDate.add(1, "days").toDate());
-    console.log("date count", dates.length)
+    console.log("date count", dates.length);
     return dates;
   };
 
@@ -59,14 +59,8 @@ function Timeline() {
   const datesBetween = getDatesBetween(startDate, endDate);
 
   return (
-    <div className="grid">
-      {outputHeader(datesBetween)}
-      {/* <div
-        className="timeline-grid__content"
-        style={{ height: `${40 * data.length}px` }}
-      >
-        {this.outputTimeline(sortedData, startDate)}
-      </div> */}
+    <div className="timeline-section">
+      <div className="container">{outputHeader(datesBetween)}</div>
     </div>
   );
 }
