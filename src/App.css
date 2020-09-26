@@ -1,12 +1,68 @@
+/*
+I don't know how exactly you're envisioning the structure of this timeline, but I was thinking of it in a matrix format where each cell is either 
+occupied by an event bar, a date cell, or is just an empty cell. Of which, the date cells should just be the top row of the matrix. All the other
+rows of the structure should contain event bars and empty cells.
+
+Here's a sample of what I'm imagining:
+
+2: date cell
+1: event cell/bar (the only cell with a variable width)
+0: empty cell
+
+the numbers could also be customized based on the type of event / color / etc for the future of this program.
+
+matrix received from the backend:
+2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2
+0 | 0 | 1 | 1 | 1 | 1 | 0 | 0 | 1 | 1
+1 | 1 | 1 | 0 | 0 | 0 | 1 | 1 | 1 | 1
+0 | 0 | 0 | 0 | 0 | 1 | 1 | 1 | 0 | 0
+0 | 1 | 1 | 1 | 0 | 0 | 0 | 1 | 1 | 1
+
+equivalent front-end matrix:
+2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2
+0 | 0 |       1       | 0 | 0 |   1  
+    1     | 0 | 0 | 0 |       1      
+0 | 0 | 0 | 0 | 0 |     1     | 0 | 0
+0 |     1     | 0 | 0 | 0 |     1    
+
+Based on a this structure it should be simpler to implement the front-end as long as the backend algorithm can generate the matrix
+(lmk if you need help creating the algo)
+
+The comments I've left below are based on the above structure, so please let me know if there's a different way you'll be structuring this and I'll help accordingly :)
+*/
+
+/* dates_container / dates_row / row might be a more appropriate name for this class instead of container since it's only spanning 1-D */
 .container {
   display: flex;
   background-color: lightseagreen;
+  /* the scroll prolly belongs in the timeline-section class since that's the main container of all the rows of the matrix */
   overflow: scroll;
+  /* the height should probably be 'auto', since it is dynamic based on the events */
   height: 500px;
 }
 
+/* this will serve the same function structure-wise as the dates_row class above but could be useful if you want to organize better or customize it differently */
+.event_row {
+  display: flex;
+}
+
+/* based on the matrix, all an empty cell will do is take space so events can be placed correctly */
+.empty_cell {
+  /* this should have the same fixde width as header-dates */
+  width: 50px;
+  background-color: white;
+}
+
+.event_bar {
+  /* the width for this element should be mathematically computed based on the dates of the event */
+  /* other structural features should remain the same as other cells. */
+  background-color: powderblue;
+}
+
 .header-dates {
-  font-size: 15px;
+  /* having a fixed width based on screen size would be a good idea for this class if you're going the mathematically computing event bar size route */
+  /* width: 50px; */
+  font-size: 15px; /*  */
   margin: 3px;
   padding-right: 1px;
   border-right: 0.5px solid gray;
@@ -15,7 +71,9 @@
 .timeline-section {
   margin-left: 15px;
   margin-top: 20px;
+  /* might be a good idea to make the width proportional to screen */
   width: 1400px;
+  /* the height should probably be 'auto' here as well for the same reason as above */
   height: 1000px;
 }
 
