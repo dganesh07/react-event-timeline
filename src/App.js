@@ -5,7 +5,12 @@ import moment from "moment";
 import Timeline from "./Timeline";
 
 function App() {
-  return <Timeline />;
+  return (
+    <>
+      <h1 style={{marginLeft: 10}}>Timeline</h1>
+      <Timeline />
+    </>
+  );
 }
 
 export default App;
